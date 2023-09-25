@@ -21,7 +21,11 @@ $(
                     if(response.route_link){
                         window.location.href = response.route_link
                 }
+            },
+            error: function(response){
+                $('#msg').removeClass('d-none').html(response.statusText)
             }
+
         })
     })
 )

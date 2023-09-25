@@ -26,13 +26,13 @@ class CarController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {   
+    {
         $tiposAcessibilidades = TipoAcessibilidade::all();
 
         return view('create', [
             'tiposAcessibilidades' => $tiposAcessibilidades
         ]);
-        
+
     }
 
     /**
@@ -64,7 +64,7 @@ class CarController extends Controller
         $tiposAcessibilidades = TipoAcessibilidade::all();
 
         return view('edit', [
-            'car' => $car, 
+            'car' => $car,
             'tiposAcessibilidades' => $tiposAcessibilidades]);
     }
 
@@ -101,13 +101,12 @@ class CarController extends Controller
 
             return response()->json([
                 'success' => false,
-                'message' => 'Car deletion failed',
-            ]);
+                'error' => 'Car deletion failed',
+            ], 400);
         }
 
         return response()->json([
-            'success' => false,
-            'message' => 'not-found',
+            'success' => false
         ], 404);
     }
 }

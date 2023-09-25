@@ -24,7 +24,7 @@ class CarRequestUpdate extends FormRequest
         return [
             'modelo' => 'required|string',
             'dataAquisicao' => 'required',
-            'placa' => 'required|string',
+            'placa' => 'required|string|unique:cars,placa,'. $this->car->id,
             'tipoAcessibilidade_id' => 'required'
         ];
     }
